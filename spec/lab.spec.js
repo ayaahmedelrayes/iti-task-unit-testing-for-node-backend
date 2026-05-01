@@ -2,12 +2,11 @@
 describe("lab testing:", () => {
 
     describe("users routes:", () => {
-        it("(GET /user/search) should respond with the correct user with the name requested",  () => { 
-            // Note: user name must be sent in request query not request params
-        })
-        it("GET /user/search with invalid name should respond with status 404 and the message",  () => { })
+        
+       it("(GET /user/search) should respond with the correct user", async () => {
+    
+});
 
-    })
 
 
     describe("todos routes:", () => {
@@ -21,4 +20,4 @@ describe("lab testing:", () => {
 
 
 
-})
+})})

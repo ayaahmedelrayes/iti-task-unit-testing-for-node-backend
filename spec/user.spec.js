@@ -54,4 +54,36 @@ describe("user routes", () => {
     expect(res.status).toBe(404);
     expect(res.body.message).toContain("no user")
   });
+  // lab -----------------------------
+  it("(GET /user/search) should respond with the correct user", async () => {
+    
+    const newUser = { name: "aya", email: "aya@test.com", password: "123" };
+    await request(app).post("/user/signup").send(newUser);
+
+
+    const res = await request(app)
+        .get('/user/search')
+        .query({ name: "aya" });
+
+    
+    expect(res.status).toBe(200);
+    
+    
+    expect(res.body.data.name).toBe("aya"); 
+});
+it("GET /user/search with invalid name should respond with status 404 and the message", async() => {
+  const newUser = { name: "basma", email: "basma@test.com", password: "123" };
+    await request(app).post("/user/signup").send(newUser);
+
+
+    const res = await request(app)
+        .get('/user/search')
+        .query({ name: "aya" });
+
+    
+    expect(res.status).toBe(404);
+    
+    
+    
+ })
 });
